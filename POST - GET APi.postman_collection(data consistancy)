@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "7ad7f046-98ed-44c8-9081-1d206a33c15f",
+    "name": "POST - GET APi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52331534",
+    "_collection_link": "https://go.postman.co/collection/52331534-7ad7f046-98ed-44c8-9081-1d206a33c15f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Data Consistency",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let jsonData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Title matches\", function () {\r",
+              "    pm.expect(jsonData.title).to.eql(pm.environment.get(\"title\"));\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Price matches\", function () {\r",
+              "    pm.expect(jsonData.price).to.eql(pm.environment.get(\"price\"));\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Category matches\", function () {\r",
+              "    pm.expect(jsonData.category).to.eql(pm.environment.get(\"category\"));\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/products",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

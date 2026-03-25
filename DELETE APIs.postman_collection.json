@@ -1,0 +1,45 @@
+{
+  "info": {
+    "_postman_id": "988e2dc8-4faa-4a37-9a88-1e770931a140",
+    "name": "DELETE APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52331534",
+    "_collection_link": "https://go.postman.co/collection/52331534-988e2dc8-4faa-4a37-9a88-1e770931a140?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Method Not Allowed",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Validate method not allowed\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 405]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://fakestoreapi.com/products",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
